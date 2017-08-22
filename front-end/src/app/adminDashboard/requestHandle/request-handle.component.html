@@ -1,0 +1,35 @@
+<div class="login-page">
+  <div class="form">
+    <div class="navbar-right" (click)="goBack()">
+      <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    <h2 style="font-weight: bold;">Approve Request</h2>
+    <form class="login-form" #serviceForm="ngForm" (ngSubmit)="onSubmit(serviceForm.value)" novalidate>
+      <!--<input type="text" #AnameRef="ngModel" maxlength="25" required placeholder="Admin_name" name="admin_name" ngModel/>
+      <div *ngIf="AnameRef.errors && (AnameRef.dirty || AnameRef.touched)" class="alert alert-danger">
+        <div [hidden]="!AnameRef.errors.required">
+          Admin_name is required
+        </div>
+      </div>-->
+      <input type="text" #nameRef="ngModel" maxlength="25" required placeholder="Username" name="username" ngModel/>
+      <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+        <div [hidden]="!nameRef.errors.required">
+          Username is required
+        </div>
+      </div>
+      <input type="text" #SnameRef="ngModel" maxlength="25" required placeholder="Service_name" name="service_name" ngModel/>
+      <div *ngIf="SnameRef.errors && (SnameRef.dirty || SnameRef.touched)" class="alert alert-danger">
+        <div [hidden]="!SnameRef.errors.required">
+          Service_name is required
+        </div>
+      </div>
+      <li style="display: inherit">
+        <input type="radio" [(ngModel)]="approve.type"  name="type" value="Approved">Approve
+        <input type="radio" [(ngModel)]="approve.type"  name="type" value="Cancelled">Cancel
+      </li>
+      <button [disabled]="!serviceForm.form.valid" type="submit">Click</button>
+    </form>
+
+  </div>
+</div>
+<router-outlet></router-outlet>

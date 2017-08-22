@@ -1,0 +1,24 @@
+<h1 style="color:#1041E5; font-family:sans-serif; font-weight:bold; text-align:center;}">Add services to Urban Clap Portal...!!</h1>
+<div class="login-page">
+  <div class="form">
+    <div class="navbar-right" (click)="goBack()">
+      <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    <h2 style="font-weight: bold;">Add Service</h2>
+      <!--a routerLink="admin-dashboard" routerLinkActive="active" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-remove"></span> go back
+      </a-->
+    <form class="login-form" #serviceForm="ngForm" (ngSubmit)="onSubmit(serviceForm.value)" novalidate>
+
+      <input type="text" #nameRef="ngModel" maxlength="25" ng-pattern="/^[a-zA-Z]*$/" required placeholder="Service_name" name="service_name" ngModel/>
+      <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+        <div [hidden]="!nameRef.errors.required">
+          Service_name is required
+        </div>
+      </div>
+      <button [disabled]="!serviceForm.form.valid" type="submit">Add</button>
+    </form>
+
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC);
+@import url(https://www.w3schools.com/w3css/4/w3.css);
+
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.bgimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-image: url("./photo.jpg");*/
+  min-height: 90%;
+}

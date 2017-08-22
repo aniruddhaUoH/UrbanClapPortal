@@ -1,0 +1,47 @@
+## Urban Clap Portal
+
+## create tables in mysql database just as given below...
+
+1. Table name-> aniruddhab_urbanclapportal_user_details_tbl
+
+     COLUMN_NAME     COLUMN_TYPE     IS_NULLABLE     COLUMN_KEY     COLUMN_DEFAULT     EXTRA          
+   --------------  --------------  --------------  -------------  -----------------  -------------- 
+   User_id         int(11)         NO              PRI            (null)             auto_increment 
+   Username        varchar(20)     NO              UNI            (null)                            
+   Email           varchar(50)     YES                            (null)                            
+   User_password   varchar(20)     NO              UNI            (null)                            
+   User_type       varchar(10)     NO                             (null)                            
+  
+2. Table name-> aniruddhab_urbanclapportal_service_request_tbl
+
+     COLUMN_NAME        COLUMN_TYPE     IS_NULLABLE     COLUMN_KEY     COLUMN_DEFAULT     EXTRA          
+   -----------------  --------------  --------------  -------------  -----------------  -------------- 
+   Request_id         int(11)         NO              PRI            (null)             auto_increment 
+   User_id            int(11)         NO              MUL            (null)                            
+   Service_id         int(11)         NO              MUL            (null)                            
+   Representative_id  int(11)         NO              MUL            (null)                            
+   Service_status     varchar(30)     NO                             (null)                            
+   Approved_admin_id  int(11)         YES             MUL            (null)                            
+   
+3. Table name-> aniruddhab_urbanclapportal_representative_details_tbl
+
+     COLUMN_NAME     COLUMN_TYPE     IS_NULLABLE     COLUMN_KEY     COLUMN_DEFAULT     EXTRA          
+   --------------  --------------  --------------  -------------  -----------------  -------------- 
+   R_id            int(11)         NO              PRI            (null)             auto_increment 
+   R_name          varchar(30)     NO                             (null)                            
+   R_phone         varchar(10)     NO              UNI            (null)                            
+   Service_id      int(11)         NO              MUL            (null)                            
+   Service_cost    int(11)         NO                             (null)                            
+
+4. Table name-> aniruddhab_urbanclapportal_service_request_tbl
+
+     COLUMN_NAME        COLUMN_TYPE     IS_NULLABLE     COLUMN_KEY     COLUMN_DEFAULT     EXTRA          
+   -----------------  --------------  --------------  -------------  -----------------  -------------- 
+   Request_id         int(11)         NO              PRI            (null)             auto_increment 
+   User_id            int(11)         NO              MUL            (null)                            
+   Service_id         int(11)         NO              MUL            (null)                            
+   Representative_id  int(11)         NO              MUL            (null)                            
+   Service_status     varchar(30)     NO                             (null)                            
+   Approved_admin_id  int(11)         YES             MUL            (null)                     
+
+/**********Aniruddha Biswas**********/

@@ -1,0 +1,20 @@
+<div *ngIf="length == 0">
+  <h2>No representative is available for this service...</h2>
+</div>
+
+<table class="responstable">
+
+  <tr>
+    <th data-th="Driver details"><span>Representative name</span></th>
+    <th>Phone No</th>
+    <th>Service Cost</th>
+  </tr>
+
+  <tr *ngFor="let representative of representatives">
+    <td>{{representative.r_name}}</td>
+    <td>{{representative.r_phone}}</td>
+    <td>{{representative.service_cost}}</td>
+  </tr>
+
+</table>
+<div class="text-center"><button class="btn btn-primary" (click)="clickToComeBack()">Go Back</button></div>

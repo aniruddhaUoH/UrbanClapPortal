@@ -1,0 +1,34 @@
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-red w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a class="w3-bar-item w3-button" style="font-weight: bold">Urban Clap Portal</a>
+    <a class="w3-bar-item w3-button" routerLink="add-services" routerLinkActive="active" style="font-weight: bold">Add Services</a>
+    <a class="w3-bar-item w3-button" routerLink="display-requests" routerLinkActive="active" style="font-weight: bold">Request Details</a>
+    <a class="w3-bar-item w3-button navbar-right" style="font-weight: bold; padding-right: 50px" routerLink="/login" routerLinkActive="active" (click)="logOut()">Log out</a>
+  </div>
+</div>
+
+
+<!--display of services-->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+  <div class="w3-content">
+    <div id="Pizza" class="w3-container menu w3-padding-32 w3-white">
+      <!--<li class="list-group-item" id="items" *ngFor="let service of services | paginate: { itemsPerPage: 10, currentPage: p }">-->
+      <li class="list-group-item" id="items" *ngFor="let service of services">
+        <h1><b (click)="onClick1(service.service_name)">{{service.service_name}}</b>
+          <button class="w3-button w3-right w3-tag w3-dark-grey w3-round" routerLink="add-representative"
+                  routerLinkActive="active" (click)="onClickService(service.service_name)">Add Representative</button></h1>
+        <span class="glyphicon glyphicon-trash" (click)="onTrashClick(service.service_name)"></span>
+      </li>
+      <!--<pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>Designed & developed by</p><h2 style="color: red">Aniruddha Biswas</h2>
+</footer>
+</body>
+

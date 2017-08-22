@@ -1,0 +1,31 @@
+<div *ngIf="length == 0">
+  <h2>No representative is available for this service...</h2>
+  <button class = "w3-button w3-tag w3-dark-grey w3-round" (click)="onClickChange()">Add Representatives</button>
+</div>
+<!--<div>
+  <li class="list-group-item" id="items" *ngFor="let representative of representatives">
+    <div>
+      <h3 style="font-weight: bold">Name: </h3>{{representative.r_name}}
+      <h3 style="font-weight: bold">Phone: </h3>{{representative.r_phone}}
+      <h3 style="font-weight: bold">Service Cost: </h3>{{representative.service_cost}}
+    </div>
+  </li>
+</div>-->
+
+
+<table class="responstable">
+
+  <tr>
+    <th data-th="Driver details"><span>Representative name</span></th>
+    <th>Phone No</th>
+    <th>Service Cost</th>
+  </tr>
+
+  <tr *ngFor="let representative of representatives">
+    <td>{{representative.r_name}}</td>
+    <td>{{representative.r_phone}}</td>
+    <td>{{representative.service_cost}}</td>
+  </tr>
+
+</table>
+<div class="text-center"><button class="btn btn-primary" (click)="clickToComeBack()">Go Back</button></div>

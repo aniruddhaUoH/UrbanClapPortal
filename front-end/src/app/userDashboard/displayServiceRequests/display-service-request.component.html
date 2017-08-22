@@ -1,0 +1,19 @@
+<div *ngIf="length == 0">
+  <h2>No service is requested till now...</h2>
+</div>
+<table class="responstable">
+
+  <tr>
+    <th data-th="Driver details"><span>Service Name</span></th>
+    <th>Representative Name</th>
+    <th>Service Status</th>
+  </tr>
+
+  <tr *ngFor="let request of requests">
+    <td>{{request.service_name}}</td>
+    <td>{{request.r_name}}</td>
+    <td>{{request.service_status}}</td>
+  </tr>
+
+</table>
+<div class="text-center"><button class="btn btn-primary" (click)="clickToComeBack()">Go Back</button></div>

@@ -1,0 +1,41 @@
+<body class="bckground">
+<div class="main">
+  <h1 style="color: white">Welcome to Urban Clap Portal</h1>
+  <div class="main-w3lsrow">
+    <!-- login form -->
+    <div class="login-form login-form-left">
+      <div class="agile-row">
+        <h2>Login Form</h2>
+        <div class="login-agileits-top">
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" novalidate>
+            <p>User Name </p>
+            <input type="text" class="name" #nameRef="ngModel" maxlength="15" minlength="5" required placeholder="Username" name="name" ngModel/>
+            <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+              <div [hidden]="!nameRef.errors.required">
+                Username is required
+              </div>
+              <div [hidden]="!nameRef.errors.minlength">
+                Please enter atleast 5 characters
+              </div>
+            </div>
+            <p>Password</p>
+            <input type="password" class="password" #passwdRef="ngModel" maxlength="10" minlength="5" required placeholder="Password" name="password" ngModel/>
+            <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">
+              <div [hidden]="!passwdRef.errors.required">
+                Password is required
+              </div>
+              <div [hidden]="!passwdRef.errors.minlength">
+                Please enter atleast 5 characters
+              </div>
+            </div>
+            <input [disabled]="!userForm.form.valid" type="submit">
+            <p class="message" style="text-align: center">Not registered? </p>
+            <a routerLink="/register" routerLinkActive="active" style="color: aqua">Create an account</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<router-outlet></router-outlet>

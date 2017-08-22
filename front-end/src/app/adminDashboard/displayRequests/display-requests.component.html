@@ -1,0 +1,20 @@
+<table class="responstable">
+
+  <tr>
+    <th data-th="Driver details"><span>Service Name</span></th>
+    <th>Username</th>
+    <th>Representative Name</th>
+    <th>Service Status</th>
+    <th>Approve/Cancel</th>
+  </tr>
+
+  <tr *ngFor="let request of requests">
+    <td>{{request.username}}</td>
+    <td>{{request.service_name}}</td>
+    <td>{{request.r_name}}</td>
+    <td>{{request.service_status}}</td>
+    <button routerLink="request-handle" routerLinkActive="active">Click</button>
+  </tr>
+
+</table>
+<div class="text-center"><button class="btn btn-primary" (click)="clickToComeBack()">Go Back</button></div>

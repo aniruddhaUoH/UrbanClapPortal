@@ -1,0 +1,44 @@
+<h1 style="color:#1041E5; font-family:sans-serif; font-weight:bold; text-align:center;}">Add Representatives to Urban Clap Portal...!!</h1>
+<div class="login-page">
+  <div class="form">
+    <div class="navbar-right" (click)="goBack()">
+      <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    <h2 style="font-weight: bold;">Login</h2>
+    <form class="login-form" #representativeForm="ngForm" (ngSubmit)="onSubmit(representativeForm.value)" novalidate>
+
+      <input type="text" #nameRef="ngModel" ng-pattern="/^[a-zA-Z]*$/" maxlength="15" minlength="5" required placeholder="Representative_name" name="r_name" ngModel/>
+      <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+        <div [hidden]="!nameRef.errors.required">
+          Representative_name is required
+        </div>
+        <div [hidden]="!nameRef.errors.minlength">
+          Please enter atleast 5 characters
+        </div>
+      </div>
+
+      <input type="number" #phoneRef="ngModel" maxlength="12" minlength="10" required placeholder="Phone number" name="r_phone" ngModel/>
+      <div *ngIf="phoneRef.errors && (phoneRef.dirty || phoneRef.touched)" class="alert alert-danger">
+        <div [hidden]="!phoneRef.errors.required">
+          Phone number is required
+        </div>
+        <div [hidden]="!phoneRef.errors.minlength">
+          Please enter valid phone number
+        </div>
+      </div>
+
+      <input type="number" #costRef="ngModel" required placeholder="Service Cost" name="service_cost" ngModel/>
+      <div *ngIf="costRef.errors && (costRef.dirty || costRef.touched)" class="alert alert-danger">
+        <div [hidden]="!costRef.errors.required">
+          Service cost is required
+        </div>
+      </div>
+
+      <input disabled required [(ngModel)]="serviceName" placeholder="Service_name" name="service_name" ngModel/>
+
+      <button [disabled]="!representativeForm.form.valid" type="submit">Add</button>
+
+    </form>
+  </div>
+</div>
+<router-outlet></router-outlet>

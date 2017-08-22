@@ -1,0 +1,54 @@
+<body class="bckg">
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" novalidate>
+  <h1 style="font-weight: bold">Sign Up</h1>
+  <hr>
+  <fieldset>
+    <legend><span class="number">?</span>Your basic info</legend>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-pattern="/^[a-zA-Z]*$/" #nameRef="ngModel" maxlength="20" minlength="5" required placeholder="Username" name="username" ngModel/>
+    <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+      <div [hidden]="!nameRef.errors.required">
+        Username is required
+      </div>
+      <div [hidden]="!nameRef.errors.minlength">
+        Please enter atleast 5 characters
+      </div>
+    </div>
+
+    <label for="mail">Email:</label>
+    <input type="email" id="mail" #nameRef="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+           required placeholder="Email" name="email" ngModel/>
+    <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+      <div [hidden]="!nameRef.errors.required">
+        Email is required
+      </div>
+      <div [hidden]="!nameRef.errors.pattern">
+        Email is invalid
+      </div>
+    </div>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" #passwdRef="ngModel" maxlength="15" minlength="5" required placeholder="Password" name="user_password" ngModel/>
+    <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">
+      <div [hidden]="!passwdRef.errors.required">
+        Password is required
+      </div>
+      <div [hidden]="!passwdRef.errors.minlength">
+        Please enter atleast 5 characters
+      </div>
+    </div>
+    <label>Type of User:
+    <!--input type="text" required placedholder="Usertype" name="userType" ngModel/-->
+
+      <input type="radio" [(ngModel)]="user.type"  name="type" value="Admin">Admin
+      <input type="radio" [(ngModel)]="user.type"  name="type" value="User">User
+    </label>
+  </fieldset>
+  <button [disabled]="!userForm.form.valid" type="submit">Sign Up</button>
+  <div style="text-align: center;">
+    <p>Already have an account? <a routerLink="/" routerLinkActive="active">Login</a></p>
+  </div>
+</form>
+</body>
+<router-outlet></router-outlet>

@@ -1,0 +1,23 @@
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.bgimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("app/images/photo.jpg");
+  min-height: 90%;
+}
+.bckground {
+  font-family: 'Ubuntu', sans-serif;
+  background: url("app/images/1.jpg")repeat 0px 0px;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.bckg {
+  background: url("app/images/bck.jpg");
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}

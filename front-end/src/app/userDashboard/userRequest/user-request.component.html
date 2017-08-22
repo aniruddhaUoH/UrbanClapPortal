@@ -1,0 +1,30 @@
+<div class="login-page">
+  <div class="form">
+    <div class="navbar-right" (click)="goBack()">
+      <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    <h2 style="font-weight: bold;">Service Request</h2>
+    <form class="login-form" #requestForm="ngForm" (ngSubmit)="onSubmit(requestForm.value)" novalidate>
+
+<!--      <input type="text" #nameRef="ngModel" required placeholder="Username" name="username" ngModel/>
+      <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+        <div [hidden]="!nameRef.errors.required">
+          Username is required
+        </div>
+      </div>-->
+
+      <input disabled required [(ngModel)]="serviceName" placeholder="Service_name" name="service_name" ngModel/>
+
+      <input type="text" #serviceCostRef="ngModel" required placeholder="Representative_name" name="r_name" ngModel/>
+      <div *ngIf="serviceCostRef.errors && (serviceCostRef.dirty || serviceCostRef.touched)" class="alert alert-danger">
+        <div [hidden]="!serviceCostRef.errors.required">
+          Representative_name is required
+        </div>
+      </div>
+
+      <button [disabled]="!requestForm.form.valid" type="submit">Add Request</button>
+
+    </form>
+  </div>
+</div>
+<router-outlet></router-outlet>
